@@ -11,7 +11,7 @@ services:
       - oracle-volume:/opt/oracle/oradata # <.>
 
   oracle-sqlcl: # <.>
-    image: container-registry.oracle.com/database/sqlcl:22.3.1 # <.>
+    image: container-registry.oracle.com/database/sqlcl:latest # <.>
     volumes:
       - ./sql_scripts:/opt/oracle/sql_scripts/
     stdin_open: true
