@@ -20,7 +20,6 @@ begin
          DBMS_OUTPUT.PUT_LINE('User '
                               || l_list(l_iterator)
                               || ' created');
-         execute immediate 'GRANT CONNECT, RESOURCE, CREATE VIEW to ' || l_list(l_iterator); -- <.>
       exception
          when e_user_already_exists then
             execute immediate 'ALTER USER '
@@ -29,8 +28,8 @@ begin
             DBMS_OUTPUT.PUT_LINE('User '
                                  || l_list(l_iterator)
                                  || ' exists, altered');
-            execute immediate 'GRANT CONNECT, RESOURCE, CREATE VIEW to ' || l_list(l_iterator); -- <.>
       end;
+      execute immediate 'GRANT CONNECT, RESOURCE, CREATE VIEW to ' || l_list(l_iterator); -- <.>
    end loop;
 end;
 /
